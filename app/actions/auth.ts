@@ -35,7 +35,8 @@ const handleVerificationToken = async (user: {
   await VerificationTokenModel.findOneAndDelete({ userId });
   await VerificationTokenModel.create({ token, userId });
   const link = `${process.env.VERIFICATION_LINK}?token=${token}&userId=${userId}`;
-  await mail.sendVerificationMail({ link, name: user.name, to: user.email });
+  await mail.sendVerificationMail({ link, name: user.name, to: user.email });// En el futuro se puede mandar un email con el link de verificacion a production en vez de localhost
+  
 };
 
 const signUpSchema = z.object({

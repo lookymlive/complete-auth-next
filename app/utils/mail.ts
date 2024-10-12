@@ -14,23 +14,30 @@ const transport = nodemailer.createTransport({
   host: "sandbox.smtp.mailtrap.io",
   port: 2525,
   auth: {
-    user: process.env.MAILTRAP_TEST_USER,
-    pass: process.env.MAILTRAP_TEST_PASS,
+    user: process.env.MAILTRAP_USER,
+    pass: process.env.MAILTRAP_PASS,
+    
   },
 });
 
 type Options = { to: string; name: string; link: string };
 const sendVerificationMail = async (options: Options) => {
-  if (process.env.NODE_ENV === "dev") {
+  console.log('NODE_ENV:', process.env.NODE_ENV);//borrar despues
+  console.log('MAILTRAP_TEST_USER:', process.env.MAILTRAP_TEST_USER);//borrar despues
+  console.log('VERIFICATION_MAIL:', process.env.VERIFICATION_MAIL);//borrar despues
+  if ( process.env.NODE_ENV === "development" ) {
+    // send the test email to the user
     await transport.sendMail({
       to: options.to,
       from: process.env.VERIFICATION_MAIL,
       subject: "Welcome Email",
       html: `<div>
               <p>Please click on <a href="${options.link}">this link</a></p>
+            
           </div>`,
     });
   } else {
+    // send the real email to the user
     const recipients = [
       {
         email: options.to,

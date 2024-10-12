@@ -17,14 +17,16 @@ const Verify: FC<Props> = async ({ searchParams }) => {
   try {
     const verificationToken = await VerificationTokenModel.findOne({ userId });
     if (verificationToken?.compare(token)) {
-      // token is verified
+      // token is verified correctly
       await UserModel.findByIdAndUpdate(userId, { verified: true });
       await VerificationTokenModel.findByIdAndDelete(verificationToken._id);
     } else {
+       // token is mismatched or something wrong happened
       throw new Error();
     }
   } catch (error) {
-    notFound();
+   
+    return notFound();
   }
 
   return <VerificationSuccess />;
