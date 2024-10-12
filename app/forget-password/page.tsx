@@ -27,7 +27,7 @@ const ForgetPassword: FC<Props> = () => {
         },
       ]}
     >
-      <Input name="email" placeholder="sonu@email.com" type="text" />
+      <Input name="email" placeholder="lookym@gmail.com" type="text" />
     </AuthForm>
   );
 };

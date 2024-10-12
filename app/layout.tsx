@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Next Auth App",
-  description: "Made by fsniraj.dev",
+  description: "Made by lookym.dev",
 };
 
 export default async function RootLayout({

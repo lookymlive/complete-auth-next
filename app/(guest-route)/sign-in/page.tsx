@@ -24,7 +24,7 @@ const SignIn: FC<Props> = () => {
       title="Log In"
       action={signInAction}
     >
-      <Input placeholder="luis@email.com" name="email" />
+      <Input placeholder="lookym@gmail.com" name="email" />
       <Input placeholder="********" type="password" name="password" />
     </AuthForm>
   );

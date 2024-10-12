@@ -35,14 +35,14 @@ const SignIn: FC<Props> = () => {
       <Input
         errorMessage={state.errors?.name?.join(", ")}
         isInvalid={state.errors?.name ? true : false}
-        placeholder="Sonu Kumar"
+        placeholder="Luis Paulo"
         name="name"
         
       />
       <Input
         errorMessage={state.errors?.email?.join(", ")}
         isInvalid={state.errors?.email ? true : false}
-        placeholder="sonu@email.com"
+        placeholder="lookym@gmail.com"
         name="email"
       />
       <Input
