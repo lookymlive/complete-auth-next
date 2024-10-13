@@ -22,9 +22,7 @@ const transport = nodemailer.createTransport({
 
 type Options = { to: string; name: string; link: string };
 const sendVerificationMail = async (options: Options) => {
-  console.log('NODE_ENV:', process.env.NODE_ENV);//borrar despues
-  console.log('MAILTRAP_TEST_USER:', process.env.MAILTRAP_TEST_USER);//borrar despues
-  console.log('VERIFICATION_MAIL:', process.env.VERIFICATION_MAIL);//borrar despues
+
   if ( process.env.NODE_ENV === "development" ) {
     // send the test email to the user
     await transport.sendMail({

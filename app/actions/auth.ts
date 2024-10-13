@@ -78,8 +78,8 @@ export const signUp = async (
     provider: "credentials",
     verified: false,
   });
-
-  // send verification email
+// generate verification token and send email
+  
   await handleVerificationToken({ email, id: user._id, name });
   await signIn("credentials", { email, password, redirectTo: "/" });
 

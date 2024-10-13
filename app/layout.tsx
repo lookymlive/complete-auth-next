@@ -9,7 +9,7 @@ import { auth } from "@/auth";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Next Auth App",
+  title: "Lookym App",
   description: "Made by lookym.dev",
 };
 

@@ -5,6 +5,7 @@ import { signInSchema } from "./app/utils/verificationSchema";
 import UserModel, { createNewUser } from "./app/models/user";
 import startDb from "./app/lib/db";
 import { isValidObjectId } from "mongoose";
+import { getDefaultAutoSelectFamily } from "net";
 
 export interface SessionUserProfile {
   id: string;
@@ -61,7 +62,7 @@ export const {
           email: user.email,
           name: user.name,
           verified: user.verified,
-          avatar: user.avatar?.url,
+          avatar: user.avatar?.url ||  "default value",
         };
       },
     }),
